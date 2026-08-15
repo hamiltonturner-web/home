@@ -95,6 +95,28 @@
     padding: 80px 0 64px;
     border-bottom: 1px solid var(--rule);
   }
+  .hero .wrap {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 48px;
+  }
+  .hero .hero-text {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  .hero .hero-photo {
+    flex: 0 0 auto;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--rule);
+  }
+  @media (max-width: 620px) {
+    .hero .wrap { flex-direction: column-reverse; }
+    .hero .hero-photo { width: 120px; height: 120px; }
+  }
   .hero .eyebrow {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 12.5px;
@@ -232,6 +254,36 @@
     padding: 6px 12px;
   }
 
+  /* ---------- Substack ---------- */
+  .substack-list {
+    margin-top: 26px;
+    display: flex;
+    flex-direction: column;
+  }
+  .substack-entry {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    padding: 18px 0;
+    border-top: 1px dashed var(--rule);
+  }
+  .substack-list .substack-entry:first-child { border-top: none; padding-top: 0; }
+  .substack-entry .date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+  .substack-entry h3 {
+    font-size: 18px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    transition: color .15s ease;
+  }
+  .substack-entry:hover h3 { color: var(--teal); }
+  .substack-entry p { font-size: 15px; margin: 0; color: var(--ink-soft); }
+
   /* ---------- About ---------- */
   .about-layout p { font-size: 16px; color: var(--ink-soft); }
   .credentials {
@@ -290,6 +342,7 @@
       <a href="#grants">Grants &amp; Ops</a>
       <a href="#writing">Writing &amp; Editing</a>
       <a href="#tutoring">Tutoring</a>
+      <a href="#substack">Substack</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -298,18 +351,21 @@
 
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow">Consulting &amp; Independent Practice</div>
-    <h1>Grants and operations infrastructure for nonprofits.<br>Writing, editing, and tutoring for individuals.</h1>
-    <p class="dek">I build the systems that keep nonprofits running, teach and tutor students who need more than a classroom offers, and write and edit for people who need the words exact.</p>
-    <div class="rule-row">
-      <span>Grants &amp; Operations</span>
-      <span>Writing &amp; Editing</span>
-      <span>Tutoring</span>
+    <div class="hero-text">
+      <div class="eyebrow">Consulting &amp; Independent Practice</div>
+      <h1>Grants and operations infrastructure for nonprofits.<br>Writing, editing, and tutoring for individuals.</h1>
+      <p class="dek">I build the systems that keep nonprofits running, teach and tutor students who need more than a classroom offers, and write and edit for people who need the words exact.</p>
+      <div class="rule-row">
+        <span>Grants &amp; Operations</span>
+        <span>Writing &amp; Editing</span>
+        <span>Tutoring</span>
+      </div>
+      <div class="cta-row">
+        <a class="btn teal" href="#contact">Start a conversation</a>
+        <a class="btn" href="#grants">See the work</a>
+      </div>
     </div>
-    <div class="cta-row">
-      <a class="btn teal" href="#contact">Start a conversation</a>
-      <a class="btn" href="#grants">See the work</a>
-    </div>
+    <img class="hero-photo" src="headshot.png" alt="Hamilton Turner">
   </div>
 </header>
 
@@ -411,6 +467,41 @@
           <h3>Writing instruction</h3>
           <p>Essay structure, argumentation, and revision, for students who need to write clearly under a deadline as much as a scholar.</p>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="doc" id="substack">
+  <div class="wrap">
+    <span class="tab">Substack</span>
+    <div class="doc-body">
+      <h2>Hamilton's Ramblings</h2>
+      <p class="lead">Occasional writing on US politics and foreign policy, published under my own byline.</p>
+      <div class="substack-list">
+        <a class="substack-entry" href="https://turnerhamilton.substack.com/p/the-us-is-an-instigator-of-conflict" target="_blank" rel="noopener">
+          <div class="date">Apr 9, 2026</div>
+          <h3>The U.S. is an Instigator of Conflict (Obviously)</h3>
+          <p>I did do a Master's after all</p>
+        </a>
+        <a class="substack-entry" href="https://turnerhamilton.substack.com/p/what-to-do-when-all-the-conspiracies" target="_blank" rel="noopener">
+          <div class="date">Feb 8, 2026</div>
+          <h3>What to do when all the conspiracies turn out to be true</h3>
+          <p>TL;DR If no one is arrested, charged, or meaningfully held accountable, then the problem is not corruption within the system, it is the system itself.</p>
+        </a>
+        <a class="substack-entry" href="https://turnerhamilton.substack.com/p/a-dumpster-fire" target="_blank" rel="noopener">
+          <div class="date">Feb 5, 2026</div>
+          <h3>A Dumpster Fire</h3>
+          <p>Remarkably self imposed</p>
+        </a>
+        <a class="substack-entry" href="https://turnerhamilton.substack.com/p/coming-home" target="_blank" rel="noopener">
+          <div class="date">Jan 28, 2026</div>
+          <h3>Coming Home</h3>
+          <p>To a Country That Only Works If You Never Left</p>
+        </a>
+      </div>
+      <div class="cta-row" style="margin-top: 28px;">
+        <a class="btn teal" href="https://substack.com/@turnerhamilton" target="_blank" rel="noopener">Read on Substack</a>
       </div>
     </div>
   </div>
