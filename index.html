@@ -299,6 +299,29 @@
   }
 
   /* ---------- Contact ---------- */
+  .contact-form textarea {
+    display: block;
+    width: 100%;
+    min-height: 140px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 14px 16px;
+    margin-top: 6px;
+    resize: vertical;
+  }
+  .contact-form textarea:focus-visible {
+    outline: 2px solid var(--teal-deep);
+    outline-offset: 2px;
+  }
+  .contact-form button { margin-top: 18px; }
+  .contact-divider {
+    border-top: 1px dashed var(--rule);
+    margin: 32px 0;
+  }
   .contact-body {
     display: flex;
     justify-content: space-between;
@@ -527,15 +550,23 @@
 <section class="doc" id="contact" style="border-bottom: none;">
   <div class="wrap">
     <span class="tab">Contact Sheet</span>
-    <div class="doc-body contact-body">
-      <div>
-        <h2 style="margin-bottom: 12px;">Get in touch</h2>
-        <a class="email" href="mailto:hamilton.j.turner@gmail.com">hamilton.j.turner@gmail.com</a>
-      </div>
-      <div class="contact-meta">
-        Independent consultant<br>
-        Based in Brooklyn, NY<br>
-        Working across US / EU / MENA time zones
+    <div class="doc-body">
+      <h2>Want to learn more of what I can do for you? Send me a message here:</h2>
+      <form class="contact-form" onsubmit="return sendContactMessage(event)">
+        <textarea id="contact-message" name="message" placeholder="Your message" required></textarea>
+        <button type="submit" class="btn teal">Send message</button>
+      </form>
+      <div class="contact-divider"></div>
+      <div class="contact-body">
+        <div>
+          <h2 style="margin-bottom: 12px;">Get in touch</h2>
+          <a class="email" href="mailto:hamilton.j.turner@gmail.com">hamilton.j.turner@gmail.com</a>
+        </div>
+        <div class="contact-meta">
+          Independent consultant<br>
+          Based in Brooklyn, NY<br>
+          Working across US / EU / MENA time zones
+        </div>
       </div>
     </div>
   </div>
@@ -544,6 +575,23 @@
 <footer>
   hamilton-turner.com
 </footer>
+
+<script>
+  function sendContactMessage(event) {
+    event.preventDefault();
+    var textarea = document.getElementById('contact-message');
+    var message = textarea.value.trim();
+    if (!message) {
+      textarea.focus();
+      return false;
+    }
+    var to = 'hamilton.j.turner@gmail.com,hjt.maroc@gmail.com';
+    var subject = encodeURIComponent('Website inquiry');
+    var body = encodeURIComponent(message);
+    window.location.href = 'mailto:' + to + '?subject=' + subject + '&body=' + body;
+    return false;
+  }
+</script>
 
 </body>
 </html>
