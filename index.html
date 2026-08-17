@@ -329,14 +329,22 @@
     flex-wrap: wrap;
     gap: 24px;
   }
+  .contact-body > div { min-width: 0; }
   .contact-body a.email {
+    display: inline-block;
+    max-width: 100%;
     font-family: 'Fraunces', serif;
     font-size: 24px;
     text-decoration: none;
     border-bottom: 1.5px solid var(--teal);
     padding-bottom: 2px;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
   .contact-body a.email:hover { color: var(--teal-mid); }
+  @media (max-width: 480px) {
+    .contact-body a.email { font-size: 19px; }
+  }
   .contact-meta {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 12.5px;
