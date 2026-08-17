@@ -246,7 +246,7 @@ section.doc {
 }
 
 section.doc h2 { font-size: 27px; margin-bottom: 18px; }
-section.doc > .wrap > .doc-body > p.lead { color: var(--ink-soft); max-width: 62ch; }
+section.doc > .wrap > .doc-body > p.lead { color: var(--ink-soft); }
 
 /* ---------- Scope grid ---------- */
 .scope-grid {
@@ -260,6 +260,7 @@ section.doc > .wrap > .doc-body > p.lead { color: var(--ink-soft); max-width: 62
 @media (max-width: 620px) {
   .scope-grid { grid-template-columns: 1fr; }
 }
+.scope-grid .scope-item:last-child:nth-child(odd) { grid-column: 1 / -1; }
 .scope-item {
   background: var(--paper);
   padding: 24px 26px;
