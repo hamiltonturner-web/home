@@ -3,6 +3,7 @@
   --ink-soft: #3E6461;
   --paper: #F7F5EE;
   --paper-raised: #EFEDE2;
+  --paper-dim: #D2D0CA;
   --teal: #1C6E68;
   --teal-deep: #0E3A3B;
   --teal-mid: #2E8079;
@@ -313,6 +314,36 @@ section.doc > .wrap > .doc-body > p.lead { color: var(--ink-soft); max-width: 62
 .substack-entry:hover h3 { color: var(--teal); }
 .substack-entry p { font-size: 15px; margin: 0; color: var(--ink-soft); }
 
+#substack .doc-body {
+  background: var(--teal);
+  border-color: var(--teal-deep);
+}
+#substack h2 { color: var(--paper); }
+#substack > .wrap > .doc-body > p.lead { color: rgba(247, 245, 238, 0.85); }
+#substack .substack-entry { border-top-color: rgba(247, 245, 238, 0.25); }
+#substack .substack-entry .date { color: rgba(247, 245, 238, 0.75); transition: color .15s ease; }
+#substack .substack-entry h3 { color: var(--paper); }
+#substack .substack-entry p { color: rgba(247, 245, 238, 0.75); }
+#substack .substack-entry:hover h3,
+#substack .substack-entry:hover .date,
+#substack .substack-entry:focus-visible h3,
+#substack .substack-entry:focus-visible .date,
+#substack .substack-entry:active h3,
+#substack .substack-entry:active .date {
+  color: var(--paper-dim);
+}
+#substack a:focus-visible { outline-color: var(--paper); }
+#substack .btn.teal {
+  background: var(--paper);
+  color: var(--teal-deep);
+  border-color: var(--paper);
+}
+#substack .btn.teal:hover {
+  background: var(--paper-dim);
+  border-color: var(--paper-dim);
+  color: var(--teal-deep);
+}
+
 /* ---------- About ---------- */
 .about-layout p { font-size: 16px; color: var(--ink-soft); }
 .credentials {
@@ -328,19 +359,20 @@ section.doc > .wrap > .doc-body > p.lead { color: var(--ink-soft); max-width: 62
 .about-grid {
   display: flex;
   gap: 36px;
-  align-items: flex-start;
+  align-items: center;
 }
 .about-grid .about-text { flex: 1 1 auto; min-width: 0; }
 .about-photo {
-  flex: 0 0 240px;
+  flex: 0 0 auto;
   width: 240px;
-  height: 300px;
+  height: 240px;
+  border-radius: 50%;
   object-fit: cover;
   border: 1px solid var(--rule);
 }
 @media (max-width: 680px) {
-  .about-grid { flex-direction: column-reverse; }
-  .about-photo { width: 100%; height: auto; max-height: 420px; }
+  .about-grid { flex-direction: column-reverse; align-items: stretch; }
+  .about-photo { width: 180px; height: 180px; align-self: center; }
 }
 
 /* ---------- Contact ---------- */
