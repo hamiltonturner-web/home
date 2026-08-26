@@ -188,18 +188,11 @@ p {
   padding: 56px 0 60px;
   border-bottom: 1px solid var(--rule);
 }
-.paths .section-label {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12.5px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--teal);
-  margin-bottom: 22px;
-}
 .path-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
+  align-items: stretch;
 }
 @media (max-width: 680px) {
   .path-grid { grid-template-columns: 1fr; }
@@ -207,68 +200,36 @@ p {
 .path-card {
   border: 1px solid var(--rule);
   background: var(--paper);
-  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
-}
-.path-card:hover, .path-card:focus-within {
-  border-color: var(--teal);
-  box-shadow: 0 14px 34px -20px rgba(14, 58, 59, 0.4);
-  transform: translateY(-3px);
+  display: flex;
+  flex-direction: column;
 }
 .path-body {
-  position: relative;
   padding: 32px 28px 30px;
-  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
 }
-.path-card-link {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: auto;
-}
-.path-card-link:focus-visible { outline: 2px solid var(--teal-deep); outline-offset: -2px; }
 .path-body h2 { font-size: 23px; }
-.path-body > p { margin-top: 12px; color: var(--ink-soft); font-size: 15.5px; }
-.path-arrow {
-  display: inline-block;
-  margin-top: 20px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12.5px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--teal);
-}
+.path-body > p { margin-top: 12px; margin-bottom: 0; color: var(--ink-soft); font-size: 15.5px; flex: 1 1 auto; }
+.path-body > .btn { margin-top: 24px; align-self: flex-start; }
 .path-links {
-  margin-top: 20px;
+  margin-top: 24px;
   display: flex;
   flex-wrap: wrap;
-  gap: 12px 22px;
+  gap: 10px 12px;
 }
 .path-links a {
-  position: relative;
-  z-index: 2;
-  pointer-events: auto;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 12.5px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
   text-decoration: none;
+  border: 1px solid var(--teal);
   color: var(--teal);
-  border-bottom: 1px solid transparent;
-  padding-bottom: 2px;
-  transition: border-color .15s ease, color .15s ease;
+  padding: 8px 14px;
+  transition: background .15s ease, color .15s ease;
 }
-.path-links a:hover, .path-links a:focus-visible { border-color: var(--teal); color: var(--teal-mid); }
-
-/* ---------- Scroll reveal ---------- */
-.reveal {
-  opacity: 0;
-  transform: translateY(22px);
-  transition: opacity .6s ease, transform .6s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+.path-links a:hover, .path-links a:focus-visible { background: var(--teal); color: var(--paper); }
 
 /* ---------- Section shell w/ file tab ---------- */
 section.doc {
@@ -492,5 +453,4 @@ footer {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal { transition: none; opacity: 1; transform: none; }
 }
