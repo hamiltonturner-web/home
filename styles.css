@@ -186,6 +186,7 @@ p {
 /* ---------- Paths ---------- */
 .paths {
   padding: 56px 0 60px;
+  background: var(--paper-raised);
   border-bottom: 1px solid var(--rule);
 }
 .path-grid {
@@ -234,6 +235,7 @@ p {
 /* ---------- Section shell w/ file tab ---------- */
 section.doc {
   padding: 52px 0;
+  background: var(--paper-raised);
   border-bottom: 1px solid var(--rule);
 }
 .tab {
@@ -245,7 +247,7 @@ section.doc {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--teal);
-  background: var(--paper-raised);
+  background: var(--paper);
   border: 1px solid var(--rule);
   border-bottom: none;
   padding: 7px 14px 6px;
