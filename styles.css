@@ -237,6 +237,53 @@ p {
 }
 .path-links a:hover, .path-links a:focus-visible { background: var(--teal); color: var(--paper); }
 
+/* ---------- Start band ---------- */
+.start-band {
+  background: var(--teal-deep);
+  padding: 64px 0;
+  border-bottom: 1px solid rgba(247, 245, 238, 0.15);
+}
+.start-band .eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(247, 245, 238, 0.75);
+  margin-bottom: 16px;
+}
+.start-band h2 {
+  color: var(--paper);
+  font-size: 34px;
+}
+.start-band .lede {
+  color: rgba(247, 245, 238, 0.82);
+  max-width: 54ch;
+  margin-top: 16px;
+  font-size: 16.5px;
+}
+.start-band .pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+.start-band .pill {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12.5px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid rgba(247, 245, 238, 0.55);
+  color: var(--paper);
+  padding: 8px 14px;
+  transition: background .15s ease, color .15s ease, border-color .15s ease;
+}
+.start-band .pill:hover, .start-band .pill:focus-visible {
+  background: var(--paper);
+  color: var(--teal-deep);
+  border-color: var(--paper);
+}
+
 /* ---------- Section shell w/ file tab ---------- */
 section.doc {
   padding: 52px 0;
