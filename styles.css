@@ -433,9 +433,10 @@ section.doc > .wrap > .doc-body > p.lead { color: var(--ink-soft); }
 }
 .contact-form button { margin-top: 18px; }
 .form-success {
-  font-size: 17px;
-  color: var(--ink);
-  padding: 18px 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--teal-deep);
+  margin: 16px 0 22px;
 }
 .contact-divider {
   border-top: 1px dashed var(--rule);

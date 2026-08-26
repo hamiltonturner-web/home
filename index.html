@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=15">
+<link rel="stylesheet" href="styles.css?v=16">
 </head>
 <body>
 
@@ -76,7 +76,8 @@
     <span class="tab">Contact Sheet</span>
     <div class="doc-body">
       <h2>Send a message</h2>
-      <p class="lead">Tell me what you're working on, and I'll follow up.</p>
+      <p class="lead">Tell me what you're working on.</p>
+      <p class="form-success" id="contact-success" hidden>Thanks! Your message is on its way. I'll follow up soon.</p>
       <div id="contact-form-wrap">
         <form class="contact-form"
               action="https://docs.google.com/forms/d/e/1FAIpQLSfy9L0wuGUPrHy-SzDPYpov2H63rYEQqWMbcDQjGm9nJS5vcQ/formResponse"
@@ -113,15 +114,16 @@
   </div>
 </footer>
 
-<script defer src="scripts.js?v=15"></script>
+<script defer src="scripts.js?v=16"></script>
 <script>
   function handleContactSubmit(event) {
     var form = event.target;
     var iframe = document.getElementById('hidden-google-form-target');
-    var wrap = document.getElementById('contact-form-wrap');
+    var success = document.getElementById('contact-success');
     iframe.addEventListener('load', function onLoad() {
       iframe.removeEventListener('load', onLoad);
-      wrap.innerHTML = '<p class="form-success">Thanks — your message is on its way. I\'ll follow up soon.</p>';
+      success.hidden = false;
+      form.reset();
     });
     return true;
   }
