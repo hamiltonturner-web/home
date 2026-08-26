@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=14">
+<link rel="stylesheet" href="styles.css?v=15">
 </head>
 <body>
 
@@ -77,10 +77,19 @@
     <div class="doc-body">
       <h2>Send a message</h2>
       <p class="lead">Tell me what you're working on, and I'll follow up.</p>
-      <form class="contact-form" onsubmit="return sendContactMessage(event)">
-        <textarea id="contact-message" name="message" placeholder="Your message" required></textarea>
-        <button type="submit" class="btn teal">Send message</button>
-      </form>
+      <div id="contact-form-wrap">
+        <form class="contact-form"
+              action="https://docs.google.com/forms/d/e/1FAIpQLSfy9L0wuGUPrHy-SzDPYpov2H63rYEQqWMbcDQjGm9nJS5vcQ/formResponse"
+              method="POST" target="hidden-google-form-target" onsubmit="return handleContactSubmit(event)">
+          <div class="form-row">
+            <input type="text" name="entry.1911373413" placeholder="Your name" aria-label="Your name" required>
+            <input type="text" name="entry.384811072" placeholder="Email or phone" aria-label="Email or phone" required>
+          </div>
+          <textarea name="entry.669991513" placeholder="Your message" aria-label="Your message" required></textarea>
+          <button type="submit" class="btn teal">Send message</button>
+        </form>
+      </div>
+      <iframe name="hidden-google-form-target" id="hidden-google-form-target" style="display:none" aria-hidden="true" title="Form submission target"></iframe>
       <div class="contact-divider"></div>
       <div class="contact-secondary">
         <a class="email" href="mailto:hamilton.j.turner@gmail.com">hamilton.j.turner@gmail.com</a>
@@ -104,21 +113,17 @@
   </div>
 </footer>
 
-<script defer src="scripts.js?v=14"></script>
+<script defer src="scripts.js?v=15"></script>
 <script>
-  function sendContactMessage(event) {
-    event.preventDefault();
-    var textarea = document.getElementById('contact-message');
-    var message = textarea.value.trim();
-    if (!message) {
-      textarea.focus();
-      return false;
-    }
-    var to = 'hamilton.j.turner@gmail.com,hjt.maroc@gmail.com';
-    var subject = encodeURIComponent('Website inquiry');
-    var body = encodeURIComponent(message);
-    window.location.href = 'mailto:' + to + '?subject=' + subject + '&body=' + body;
-    return false;
+  function handleContactSubmit(event) {
+    var form = event.target;
+    var iframe = document.getElementById('hidden-google-form-target');
+    var wrap = document.getElementById('contact-form-wrap');
+    iframe.addEventListener('load', function onLoad() {
+      iframe.removeEventListener('load', onLoad);
+      wrap.innerHTML = '<p class="form-success">Thanks — your message is on its way. I\'ll follow up soon.</p>';
+    });
+    return true;
   }
 </script>
 

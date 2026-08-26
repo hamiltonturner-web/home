@@ -400,10 +400,19 @@ section.doc > .wrap > .doc-body > p.lead { color: var(--ink-soft); }
 }
 
 /* ---------- Contact ---------- */
+.contact-form .form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.contact-form .form-row input {
+  flex: 1 1 220px;
+  min-width: 0;
+}
+.contact-form input[type="text"],
 .contact-form textarea {
   display: block;
   width: 100%;
-  min-height: 140px;
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 15px;
   line-height: 1.6;
@@ -411,14 +420,23 @@ section.doc > .wrap > .doc-body > p.lead { color: var(--ink-soft); }
   background: var(--paper);
   border: 1px solid var(--rule);
   padding: 14px 16px;
-  margin-top: 6px;
   resize: vertical;
 }
+.contact-form textarea {
+  min-height: 140px;
+  margin-top: 16px;
+}
+.contact-form input[type="text"]:focus-visible,
 .contact-form textarea:focus-visible {
   outline: 2px solid var(--teal-deep);
   outline-offset: 2px;
 }
 .contact-form button { margin-top: 18px; }
+.form-success {
+  font-size: 17px;
+  color: var(--ink);
+  padding: 18px 0;
+}
 .contact-divider {
   border-top: 1px dashed var(--rule);
   margin: 32px 0 20px;
