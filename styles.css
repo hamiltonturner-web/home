@@ -80,7 +80,7 @@ p {
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
-.topbar nav a { text-decoration: none; color: var(--paper); border-bottom: 1px solid transparent; padding-bottom: 2px; transition: border-color .15s ease, opacity .15s ease; }
+.topbar nav a { white-space: nowrap; text-decoration: none; color: var(--paper); border-bottom: 1px solid transparent; padding-bottom: 2px; transition: border-color .15s ease, opacity .15s ease; }
 .topbar nav a:hover { border-color: var(--paper); opacity: 0.8; }
 
 .nav-toggle {
@@ -94,7 +94,7 @@ p {
   cursor: pointer;
 }
 
-@media (max-width: 680px) {
+@media (max-width: 760px) {
   .topbar .wrap { position: relative; }
   .nav-toggle { display: block; }
   .topbar nav {
@@ -211,7 +211,7 @@ p {
   flex: 1 1 auto;
 }
 .path-body h2 { font-size: 23px; }
-.path-body > p { margin-top: 12px; margin-bottom: 0; color: var(--ink-soft); font-size: 15.5px; flex: 1 1 auto; }
+.path-body > p { margin-top: 12px; margin-bottom: 0; color: var(--ink-soft); font-size: 15.5px; flex: 1 1 auto; text-align: left; hyphens: none; }
 .path-links {
   margin-top: 24px;
   display: flex;
@@ -289,7 +289,7 @@ section.doc > .wrap > .doc-body > p.lead { color: var(--ink-soft); }
   letter-spacing: 0.06em;
 }
 .scope-item h3 { font-size: 18px; margin-top: 8px; margin-bottom: 8px; }
-.scope-item p { font-size: 15px; margin: 0; color: var(--ink-soft); }
+.scope-item p { font-size: 15px; margin: 0; color: var(--ink-soft); text-align: left; hyphens: none; }
 
 /* ---------- Tags ---------- */
 .tags { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
